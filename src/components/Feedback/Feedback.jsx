@@ -1,14 +1,11 @@
-import {
-  Title,
-  Button,
-  Container,
-  ButtonWrapper,
-  SubTitle,
-  Result,
-} from './Feedback.styles';
+import { Title, Button, Section, ButtonWrapper } from './Feedback.styles';
+import Statistics from '../Statistics/Statistics';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 
-export const Feedback = ({
-  state: { good, neutral, bad },
+const ButtonOptions = ['Good', 'Neutral', 'Bad'];
+
+const Feedback = ({
+  state,
   onDecrimentGood,
   onDecrimentNeutral,
   onDecrimentBad,
@@ -16,20 +13,16 @@ export const Feedback = ({
   positive,
 }) => {
   return (
-    <Container>
+    <Section>
       <Title>Please leave feedback</Title>
       <ButtonWrapper>
-        <Button onClick={() => onDecrimentGood()}>Good</Button>
-        <Button onClick={() => onDecrimentNeutral()}>Neutral</Button>
-        <Button onClick={() => onDecrimentBad()}>Bad</Button>
+        <FeedbackOptions
+          options={ButtonOptions}
+          onLeaveFeedback={onDecrimentGood}
+        />
       </ButtonWrapper>
-      <SubTitle>Statistics</SubTitle>
-      <Result>Good: {good}</Result>
-      <Result>Neutral: {neutral}</Result>
-      <Result>Bad: {bad}</Result>
-      <Result>Total: {total}</Result>
-      <Result>Positive feedback: {total === 0 ? 0 : positive} %</Result>
-    </Container>
+      <Statistics state={state} total={total} positivePercentage={positive} />
+    </Section>
   );
 };
 

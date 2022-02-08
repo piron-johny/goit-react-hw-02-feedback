@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-export const Section = styled.div`
+export const StyledSection = styled.section`
   width: 300px;
   margin: 0 auto;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   font-size: 29px;
   text-align: center;
 `;
