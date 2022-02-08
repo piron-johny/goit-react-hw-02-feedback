@@ -18,7 +18,6 @@ class App extends Component {
     const state = this.state;
     const total = Object.values(state).reduce((acc, item) => (acc += item), 0);
     const positiveFeedback = Math.round((state.good / total) * 100);
-    console.log(positiveFeedback ? 0 : positiveFeedback);
 
     return (
       <Feedback

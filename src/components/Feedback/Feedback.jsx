@@ -28,7 +28,7 @@ export const Feedback = ({
       <Result>Neutral: {neutral}</Result>
       <Result>Bad: {bad}</Result>
       <Result>Total: {total}</Result>
-      <Result>Positive feedback: {positive === NaN ? '0' : positive} %</Result>
+      <Result>Positive feedback: {total === 0 ? 0 : positive} %</Result>
     </Container>
   );
 };
