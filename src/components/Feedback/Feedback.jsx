@@ -12,6 +12,8 @@ export const Feedback = ({
   onDecrimentGood,
   onDecrimentNeutral,
   onDecrimentBad,
+  total,
+  positive,
 }) => {
   return (
     <Container>
@@ -22,9 +24,11 @@ export const Feedback = ({
         <Button onClick={() => onDecrimentBad()}>Bad</Button>
       </ButtonWrapper>
       <SubTitle>Statistics</SubTitle>
-      <Result>Good:  {good}</Result>
-      <Result>Neutral:  {neutral}</Result>
-      <Result>Bad:  {bad}</Result>
+      <Result>Good: {good}</Result>
+      <Result>Neutral: {neutral}</Result>
+      <Result>Bad: {bad}</Result>
+      <Result>Total: {total}</Result>
+      <Result>Positive feedback: {positive === NaN ? '0' : positive} %</Result>
     </Container>
   );
 };
