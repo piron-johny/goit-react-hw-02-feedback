@@ -18,9 +18,16 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   border: none;
-  width: 70px;
+  width: 100px;
   padding: 10px;
   cursor: pointer;
+  background: #9b9b9b;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  &:hover {
+    background: #abaaaa;
+  }
 `;
 
 export const SubTitle = styled.p`

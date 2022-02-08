@@ -1,7 +1,31 @@
 import Feedback from './Feedback/Feedback';
+import React, { Component } from 'react';
+// import { render } from '@testing-library/react';
 
-export const App = () => {
-  return (
-      <Feedback></Feedback>
-  );
-};
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+
+  handleGoodDecriment = () => this.setState({ good: this.state.good + 1 });
+  handleNeutralDecriment = () =>
+    this.setState({ neutral: this.state.neutral + 1 });
+  handleBadDecriment = () => this.setState({ bad: this.state.bad + 1 });
+
+  render() {
+    const state = this.state;
+
+    return (
+      <Feedback
+        state={state}
+        onDecrimentGood={this.handleGoodDecriment}
+        onDecrimentNeutral={this.handleNeutralDecriment}
+        onDecrimentBad={this.handleBadDecriment}
+      />
+    );
+  }
+}
+
+export default App;

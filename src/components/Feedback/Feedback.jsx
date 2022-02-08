@@ -6,31 +6,27 @@ import {
   SubTitle,
   Result,
 } from './Feedback.styles';
-import React, { Component } from 'react';
 
-class Feedback extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
-
-  render() {
-    return (
-      <Container>
-        <Title>Please leave feedback</Title>
-        <ButtonWrapper>
-          <Button>Good</Button>
-          <Button>Neutral</Button>
-          <Button>Bad</Button>
-        </ButtonWrapper>
-        <SubTitle>Statistics</SubTitle>
-        <Result>{'Good:' }</Result>
-        <Result>{'Neutral:' }</Result>
-        <Result>{'Bad:' }</Result>
-      </Container>
-    );
-  }
-}
+export const Feedback = ({
+  state: { good, neutral, bad },
+  onDecrimentGood,
+  onDecrimentNeutral,
+  onDecrimentBad,
+}) => {
+  return (
+    <Container>
+      <Title>Please leave feedback</Title>
+      <ButtonWrapper>
+        <Button onClick={() => onDecrimentGood()}>Good</Button>
+        <Button onClick={() => onDecrimentNeutral()}>Neutral</Button>
+        <Button onClick={() => onDecrimentBad()}>Bad</Button>
+      </ButtonWrapper>
+      <SubTitle>Statistics</SubTitle>
+      <Result>Good:  {good}</Result>
+      <Result>Neutral:  {neutral}</Result>
+      <Result>Bad:  {bad}</Result>
+    </Container>
+  );
+};
 
 export default Feedback;
