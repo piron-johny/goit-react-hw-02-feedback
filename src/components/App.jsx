@@ -1,9 +1,9 @@
-import Feedback from './Feedback/Feedback';
 import React, { Component } from 'react';
 // import { render } from '@testing-library/react';
 import Section from './Section/Section';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
+import Notification from './Notification/Notification';
 
 class App extends Component {
   state = {
@@ -38,6 +38,8 @@ class App extends Component {
   };
 
   render() {
+    const {good, neutral, bad} = this.state
+
     return (
       <>
         <Section title="Please leave feedback">
@@ -64,11 +66,12 @@ class App extends Component {
         </Section>
         <Section title="Statistics">
           {{
+            notification: <Notification message='There is no feedback' total={this.countTotalFeedback()}/>,
             statistics: (
               <Statistics
-                good={this.state.good}
-                neutral={this.state.neutral}
-                bad={this.state.bad}
+                good={good}
+                neutral={neutral}
+                bad={bad}
                 total={this.countTotalFeedback()}
                 positivePercentage={this.countPositiveFeedbackPercentage()}
               />
@@ -77,7 +80,6 @@ class App extends Component {
         </Section>
       </>
     );
-    // return <Feedback {...data} />;
   }
 }
 

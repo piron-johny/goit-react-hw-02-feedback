@@ -1,17 +1,18 @@
-import { StyledSection, Title, ButtonWrapper } from './Section.styles';
+import { StyledSection, ButtonWrapper } from './Section.styles';
 
 const Section = ({
   title,
-  children: { buttonGood, buttonNeutral, buttonBad, statistics },
+  children: { buttonGood, buttonNeutral, buttonBad, statistics, notification },
 }) => {
   return (
     <StyledSection>
-      <Title>{title}</Title>
+      <h2>{title}</h2>
       <ButtonWrapper>
         {buttonGood}
         {buttonNeutral}
         {buttonBad}
       </ButtonWrapper>
+      {notification}
       {statistics}
     </StyledSection>
   );

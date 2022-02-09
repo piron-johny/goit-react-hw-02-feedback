@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Result = styled.p`
-  font-size: 20px;
+export const Paragraph = styled.p`
+  font-size: ${({ fz }) => fz || 20};
+  font-weight: ${({ fw }) => fw || 400};
 `;
 
-export const Total = styled.p`
-  font-size: 20px;
-`;
+

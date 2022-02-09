@@ -1,11 +1,5 @@
 import styled from '@emotion/styled';
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-`;
-
 export const StyledButton = styled.button`
   border: none;
   width: 100px;
