@@ -1,4 +1,4 @@
-import { StyledButton, ButtonWrapper } from './FeedbackOptions.styles';
+import { StyledButton } from './FeedbackOptions.styles';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (

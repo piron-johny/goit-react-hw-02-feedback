@@ -1,4 +1,8 @@
-import { StyledSection, ButtonWrapper } from './Section.styles';
+import {
+  StyledSection,
+  ButtonWrapper,
+  StyledContainer,
+} from './Section.styles';
 
 const Section = ({
   title,
@@ -6,14 +10,16 @@ const Section = ({
 }) => {
   return (
     <StyledSection>
-      <h2>{title}</h2>
-      <ButtonWrapper>
-        {buttonGood}
-        {buttonNeutral}
-        {buttonBad}
-      </ButtonWrapper>
-      {notification}
-      {statistics}
+      <StyledContainer>
+        <h2>{title}</h2>
+        <ButtonWrapper>
+          {buttonGood}
+          {buttonNeutral}
+          {buttonBad}
+        </ButtonWrapper>
+        {notification}
+        {statistics}
+      </StyledContainer>
     </StyledSection>
   );
 };
