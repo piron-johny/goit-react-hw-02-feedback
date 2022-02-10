@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import { render } from '@testing-library/react';
 import Section from './Section/Section';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import Statistics from './Statistics/Statistics';
-import Notification from './Notification/Notification';
+import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics';
+import Notification from './Notification';
 
 class App extends Component {
   state = {
@@ -12,14 +11,12 @@ class App extends Component {
     bad: 0,
   };
 
-  handleGoodDecriment = () => {
-    return this.setState({ good: this.state.good + 1 });
+  nameButton = ['Good', 'Neutral', 'Bad'];
+
+  onLeaveFeedback = e => {
+    const name = e.currentTarget.innerText.toLowerCase();
+    return this.setState({ [name]: this.state[name] + 1 });
   };
-
-  handleNeutralDecriment = () =>
-    this.setState({ neutral: this.state.neutral + 1 });
-
-  handleBadDecriment = () => this.setState({ bad: this.state.bad + 1 });
 
   countTotalFeedback = () => {
     const total = Object.values(this.state).reduce(
@@ -38,35 +35,25 @@ class App extends Component {
   };
 
   render() {
-    const {good, neutral, bad} = this.state
+    const { good, neutral, bad } = this.state;
 
     return (
       <>
         <Section title="Please leave feedback">
           {{
-            buttonGood: (
+            feedbackOptions: (
               <FeedbackOptions
-                options={'Good'}
-                onLeaveFeedback={this.handleGoodDecriment}
-              />
-            ),
-            buttonNeutral: (
-              <FeedbackOptions
-                options={'Neutral'}
-                onLeaveFeedback={this.handleNeutralDecriment}
-              />
-            ),
-            buttonBad: (
-              <FeedbackOptions
-                options={'Bad'}
-                onLeaveFeedback={this.handleBadDecriment}
+                options={this.nameButton}
+                onLeaveFeedback={this.onLeaveFeedback}
               />
             ),
           }}
         </Section>
         <Section title="Statistics">
           {{
-            notification: <Notification message='There is no feedback' total={this.countTotalFeedback()}/>,
+            notification: this.countTotalFeedback() === 0 && (
+              <Notification message="There is no feedback" />
+            ),
             statistics: (
               <Statistics
                 good={good}

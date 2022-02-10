@@ -13,3 +13,9 @@ export const StyledButton = styled.button`
     background: #abaaaa;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+`;
