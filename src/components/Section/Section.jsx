@@ -3,15 +3,13 @@ import { StyledSection, StyledContainer } from './Section.styles';
 
 const Section = ({
   title,
-  children: { feedbackOptions, statistics, notification },
+  children
 }) => {
   return (
     <StyledSection>
       <StyledContainer>
         <h2>{title}</h2>
-        {feedbackOptions}
-        {notification}
-        {statistics}
+        {children}
       </StyledContainer>
     </StyledSection>
   );
@@ -19,7 +17,6 @@ const Section = ({
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.objectOf(PropTypes.node),
 };
 
 export default Section;

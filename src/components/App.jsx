@@ -40,36 +40,26 @@ class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          {{
-            feedbackOptions: (
-              <FeedbackOptions
-                options={this.nameButton}
-                onLeaveFeedback={this.onLeaveFeedback}
-              />
-            ),
-          }}
+          <FeedbackOptions
+            options={this.nameButton}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
         </Section>
         <Section title="Statistics">
-          {{
-            notification: this.countTotalFeedback() === 0 && (
-              <Notification message="There is no feedback" />
-            ),
-            statistics: (
-              <Statistics
-                good={good}
-                neutral={neutral}
-                bad={bad}
-                total={this.countTotalFeedback()}
-                positivePercentage={this.countPositiveFeedbackPercentage()}
-              />
-            ),
-          }}
+          {this.countTotalFeedback() === 0 && (
+            <Notification message="There is no feedback" />
+          )}
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
         </Section>
       </>
     );
   }
 }
-
-
 
 export default App;
